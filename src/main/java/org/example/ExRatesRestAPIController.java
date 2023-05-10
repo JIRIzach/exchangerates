@@ -18,12 +18,6 @@ class ExRatesRestAPIController {
         exchangeRateService = exRaDAO;
     }
 
-    /**
-     * http://localhost:8080/api/list
-     * GET REST API returning List of entites ExchangeRate form DB or external source, by parameter usedb. Default value set to True.
-     * @param usedb string param with default setting True. If "false" API will get data from external URL and save them to DB
-     * @return List of ExchangeRate entites
-     */
     @GetMapping("/list")
     public List<ExchangeRate> list(@RequestParam(value = "usedb", defaultValue = "true") String usedb){
         log.info("method in: ExRatesRestAPIController.list() GET http://localhost:8080/api/list?" + usedb);

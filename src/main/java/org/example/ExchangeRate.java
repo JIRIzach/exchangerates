@@ -12,7 +12,6 @@ import lombok.*;
 @Entity //entity - java class mapped to a db table
 @Table(name="exchange_rates")
 public class ExchangeRate {
-//update mysql.User set Password=PASSWORD("root123") where User="root";
     // Fields
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

@@ -12,7 +12,6 @@ import java.util.List;
 public class ExchangeRateServiceImpl implements ExchangeRateService {
 
     // Fields
-//    private ExchangeRatesDAO exchangeRatesDAO;
     private ExchangeRatesRepository repository;
     private ExternalDataProcessing externalDataProcessing;
 
@@ -25,11 +24,6 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
 
     // Methods
 
-    /**
-     * public service method returning list of exchange rate instances received from DB table exchange_rate
-     *
-     * @return List of Exchange Rates entities
-     */
     @Transactional
     public List<ExchangeRate> listAllFromDB() {
         log.info("method in: ExchangeRateService.listAllFromDB()");
@@ -37,10 +31,6 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     }
 
     @Transactional
-    /**
-     * public service method returning list of exchange rate instances received from external API
-     * @return List of Exchange Rates entities
-     */
     public List<ExchangeRate> listAllFromExtURL() {
         log.info("method in: ExchangeRateService.listAllFromExtURL()");
         List<ExchangeRate> listOfExRatesFromExtURL = externalDataProcessing.getExchangeRateListFromExtApi();

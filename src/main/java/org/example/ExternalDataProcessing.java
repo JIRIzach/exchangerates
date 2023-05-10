@@ -22,13 +22,6 @@ public class ExternalDataProcessing {
     private static HttpURLConnection connection;
     String urlExternalDataSource = "https://webapi.developers.erstegroup.com/api/csas/public/sandbox/v2/rates/exchangerates?web-api-key=c52a0682-4806-4903-828f-6cc66508329e";
 
-    // Methods
-
-    /**
-     * Public method getting data from external URL
-     *
-     * @return List of ExchangeRate entities
-     */
     public List<ExchangeRate> getExchangeRateListFromExtApi(){
         log.info("method in: ExternalDataProcessing.getExchangeRateListFromExtApi()");
         String jsonString = getJsonStringFromExtAPI(urlExternalDataSource);
@@ -36,12 +29,6 @@ public class ExternalDataProcessing {
         return getListOfExchangeRatesFromJsonString(jsonString);
     }
 
-
-    /**
-     * Method parsing data from json String to list of Exchange Rate objects
-     * @param jsonString expecting Json String of Exchange Rate objects
-     * @return list of Exchange Rates
-     */
     private List<ExchangeRate> getListOfExchangeRatesFromJsonString(String jsonString){
         log.info("method in: ExternalDataProcessing.getListOfExchangeRatesFromJsonString()");
         log.debug("method in: ExternalDataProcessing.getListOfExchangeRatesFromJsonString() data in:" + jsonString);
@@ -57,11 +44,6 @@ public class ExternalDataProcessing {
         }
     }
 
-    /**
-     * private method returning string of received data from url received in method parameters
-     * @param extUrl URL
-     * @return String
-     */
     private String getJsonStringFromExtAPI(String extUrl){
         log.info("method in: ExternalDataProcessing.getJsonStringFromExtAPI()");
         log.debug("method in: ExternalDataProcessing.getJsonStringFromExtAPI() data in:" + extUrl);
